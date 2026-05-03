@@ -1,0 +1,9 @@
+---
+title: Windham Labs &mdash; Error 404
+layout: base.njk
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{% set errorCode = "404" %}
+{% set errorBody %}<p class="lead">Looks we can't find the page you are looking for. Return to our <a href="index.html">homepage</a> or drop us a line at +1 (617) 419-3900.</p>{% endset %}
+{% include "partials/error-page-inner.njk" %}

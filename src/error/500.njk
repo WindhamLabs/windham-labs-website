@@ -1,0 +1,9 @@
+---
+title: Windham Labs &mdash; Error 500
+layout: base.njk
+permalink: /error/500.html
+eleventyExcludeFromCollections: true
+---
+{% set errorCode = "500" %}
+{% set errorBody %}<p class="lead">Looks like something on our servers went wrong. We're looking into it but if the problem persists, drop us a line at +1 (617) 419-3900.</p>{% endset %}
+{% include "partials/error-page-inner.njk" %}
