@@ -29,12 +29,20 @@ jobs:
           if [ "$REPO" = "${OWNER}.github.io" ]; then
             echo "BASE_PATH=" >> "$GITHUB_ENV"
             echo "SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
+          elif [ -f CNAME ]; then
+            HOST="$(sed 's/^[[:space:]]*//; s/[[:space:]]*$//' CNAME)"
+            HOST="${HOST//$'\r'/}"
+            echo "BASE_PATH=" >> "$GITHUB_ENV"
+            echo "SITE_URL=https://${HOST}" >> "$GITHUB_ENV"
           else
             echo "BASE_PATH=/${REPO}" >> "$GITHUB_ENV"
             echo "SITE_URL=https://${OWNER}.github.io/${REPO}" >> "$GITHUB_ENV"
           fi
       - run: npm ci
       - run: npm run build
+      - name: Copy CNAME for GitHub Pages
+        if: hashFiles('CNAME') != ''
+        run: cp CNAME _site/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
