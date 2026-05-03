@@ -1,4 +1,4 @@
-# Windham Labs (Website Src)
+# Windham Labs - Asset Allocation and Risk Management Software Solutions
 
 The public site for **Windham Labs**: asset allocation and risk management specialists. This repository holds a static build of the experience visitors see online—fast, accessible pages with no server-side runtime.
 
